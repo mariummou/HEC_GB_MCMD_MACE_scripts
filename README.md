@@ -1,7 +1,7 @@
 # HEC_GB_MCMD_MACE_scripts
 Scripts and instructions for MC–MD grain-boundary segregation analysis in high-entropy carbides using a public pretrained MACE-OMAT model; adaptable to other ASE-compatible MLIPs.
 
-# Scope of this repository
+## Scope of this repository
 
 This repository provides scripts and documentation for:
 
@@ -13,7 +13,7 @@ Generation of GB composition-profile plots.
 
 This repository is intended to document and share the computational workflow used in the manuscript. The MC–MD workflow is written around an ASE-compatible calculator. Therefore, the workflow can be adapted to other ASE-compatible machine-learning interatomic potentials (MLIPs), provided that the calculator section in the script is modified appropriately by the user.
 
-# Applicability
+## Applicability
 
 The post-processing workflow can be applied to different high-entropy carbide compositions, provided that the input structures follow the same grain-boundary geometry convention used in the script.
 
@@ -39,24 +39,26 @@ Cr, Hf, Mo, Nb, Ta, Ti, V, W, Zr
 
 Carbon is excluded from the metal-sublattice composition normalization.
 
-# Repository contents
+## Repository contents
+
+This repository contains the following main files and folders:
+
+```text
 HEC_GB_MCMD_MACE_scripts/
-│
 ├── README.md
 ├── LICENSE
 ├── .gitignore
 ├── requirements.txt
-│
 ├── scripts/
 │   ├── mc_md_workflow_distributed_mace.py
 │   └── gb_segregation_postprocessing.py
-│
 └── docs/
     ├── how_to_run.md
     └── mace_model_used.md
+```
 
-# Scripts
-#1. MC–MD workflow script
+## Scripts
+## 1. MC–MD workflow script
 scripts/mc_md_workflow_distributed_mace.py
 
 This script performs MC atom-swap sampling combined with short MD relaxation using a MACE calculator.
@@ -81,7 +83,7 @@ small.model
 
 or the user should edit the model_paths variable in the script.
 
-# 2. GB segregation post-processing script
+## 2. GB segregation post-processing script
 scripts/gb_segregation_postprocessing.py
 
 This script analyzes .xyz files from MC–MD grain-boundary simulations and calculates distance-resolved metal-sublattice composition profiles as a function of distance from the nearest GB.
@@ -101,7 +103,7 @@ calculates a segregation selectivity metric.
 
 By default, the script uses the first two bins closest to the GB as the GB-core region for top-segregant analysis.
 
-# Required Python packages
+## Required Python packages
 
 The main Python packages are listed in requirements.txt.
 
@@ -118,8 +120,8 @@ pyyaml
 
 The MC–MD script used in the manuscript corresponds to the distributed-GPU workflow used on an HPC system. It uses a distributed MACE calculator. For non-distributed calculations, users may replace the distributed calculator section with a standard ASE-compatible MACE calculator or another ASE-compatible MLIP calculator.
 
-# How to run the MC–MD workflow
-# Step 1: Prepare the input structure
+## How to run the MC–MD workflow
+### Step 1: Prepare the input structure
 
 Place the starting grain-boundary structure in the run folder and name it:
 
@@ -127,7 +129,7 @@ initial.xyz
 
 The input structure should be readable by ASE.
 
-# Step 2: Prepare the model
+### Step 2: Prepare the model
 
 Place the public pretrained MACE-OMAT-0 small model in the same folder and name it:
 
@@ -135,7 +137,7 @@ small.model
 
 Alternatively, edit the model_paths variable in the MC–MD script.
 
-# Step 3: Use a temperature folder name
+### Step 3: Use a temperature folder name
 
 The script reads the target temperature automatically from the current folder name.
 
@@ -153,7 +155,7 @@ temp2000
 For example, to run a 300 K simulation, run the script inside a folder named:
 
 300K
-# Step 4: Run the script
+### Step 4: Run the script
 
 Example command:
 
@@ -190,8 +192,8 @@ accepted_snapshots/*.xyz
 
 If both restart_state.json and best_structure.xyz are present, the script resumes from the previous MC step.
 
-# How to run the GB segregation post-processing
-# Step 1: Prepare .xyz files
+## How to run the GB segregation post-processing
+### Step 1: Prepare .xyz files
 
 Place the .xyz files to be analyzed in the folder where the post-processing script will be run.
 
@@ -201,7 +203,7 @@ The script automatically processes all files ending with:
 
 in the current directory.
 
-# Step 2: Run the script
+### Step 2: Run the script
 
 From the folder containing the .xyz files, run:
 
@@ -213,7 +215,7 @@ python ../scripts/gb_segregation_postprocessing.py
 
 Important note: the script processes all .xyz files in the current directory. Therefore, run it in a folder containing only the .xyz files intended for analysis.
 
-# GB segregation post-processing outputs
+## GB segregation post-processing outputs
 
 For each input .xyz file, the post-processing script writes:
 
@@ -228,7 +230,7 @@ gb_all_species_ranked_enrichment.csv
 
 The summary files report the dominant GB species, second-highest GB species, GB composition, bulk composition, enrichment relative to the bulk region, and segregation selectivity.
 
-# Binning and GB-core definition
+## Binning and GB-core definition
 
 By default, the post-processing script uses equal-count distance bins:
 
@@ -247,7 +249,7 @@ BULK_FRACTION_START = 0.75
 
 These settings can be modified directly in the script.
 
-# Data and model availability
+## Data and model availability
 
 Large raw trajectory files, dump files, accepted snapshot folders, and HPC output folders are not included in this GitHub repository because of file-size limitations.
 
@@ -258,7 +260,7 @@ No author-generated MACE training dataset is associated with this work.
 The public pretrained MACE model source and model information are provided in:
 
 docs/mace_model_used.md
-# Reproducibility scope
+## Reproducibility scope
 
 This repository provides the scripts and workflow documentation used for MC–MD sampling and GB segregation post-processing.
 
@@ -272,7 +274,7 @@ output directories.
 
 The scripts may need minor path, calculator, or geometry modifications depending on the user’s computing environment, input structure format, and GB setup.
 
-# Citation
+## Citation
 
 If this repository is used, please cite the associated manuscript and the archived repository DOI when available.
 
