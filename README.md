@@ -255,11 +255,8 @@ Large raw trajectory files, dump files, accepted snapshot folders, and HPC outpu
 
 No custom MACE model file is included because no task-specific MACE model was trained, retrained, or fine-tuned by the authors.
 
-No author-generated MACE training dataset is associated with this work.
 
-The public pretrained MACE model source and model information are provided in:
 
-docs/mace_model_used.md
 ## Reproducibility scope
 
 This repository provides the scripts and workflow documentation used for MC–MD sampling and GB segregation post-processing.
