@@ -249,12 +249,6 @@ BULK_FRACTION_START = 0.75
 
 These settings can be modified directly in the script.
 
-## Data and model availability
-
-Large raw trajectory files, dump files, accepted snapshot folders, and HPC output folders are not included in this GitHub repository because of file-size limitations.
-
-No custom MACE model file is included because no task-specific MACE model was trained, retrained, or fine-tuned by the authors.
-
 
 
 ## Reproducibility scope
