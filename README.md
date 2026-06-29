@@ -53,7 +53,7 @@ HEC_GB_MCMD_MACE_scripts/
 │   ├── mc_md_workflow_distributed_mace.py
 │   └── gb_segregation_postprocessing.py
 └── docs/
-    ├── how_to_run.md
+    └── how_to_run.md
 ```
 
 ## Scripts
