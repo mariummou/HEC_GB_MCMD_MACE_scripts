@@ -54,7 +54,6 @@ HEC_GB_MCMD_MACE_scripts/
 │   └── gb_segregation_postprocessing.py
 └── docs/
     ├── how_to_run.md
-    └── mace_model_used.md
 ```
 
 ## Scripts
