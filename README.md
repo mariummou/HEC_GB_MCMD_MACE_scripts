@@ -4,7 +4,7 @@ Scripts and instructions for MC–MD grain-boundary segregation analysis in high
 ## Scope of this repository
 
 This repository provides scripts and documentation for:
-
+Generation of composition-specific Σ5(210) HEC grain-boundary structures from a provided `initial.xyz` template.
 MC–MD atom-swap sampling of high-entropy carbide grain-boundary structures.
 Distance-resolved grain-boundary metal-sublattice composition analysis.
 Identification of dominant GB-enriched species.
@@ -49,15 +49,35 @@ HEC_GB_MCMD_MACE_scripts/
 ├── LICENSE
 ├── .gitignore
 ├── requirements.txt
+├── initial.xyz
 ├── scripts/
-│   ├── mc_md_workflow_distributed_mace.py
+│   ├── make_sigma5_210_gb_from_initial.py
+│   ├── mc_md_workflow.py
 │   └── gb_segregation_postprocessing.py
 └── docs/
     └── how_to_run.md
 ```
 
 ## Scripts
-## 1. MC–MD workflow script
+## 1. GB structure/data creation script
+
+`scripts/make_sigma5_210_gb_from_initial.py`
+
+This script generates composition-specific Σ5(210) high-entropy carbide grain-boundary structures from the provided `initial.xyz` template.
+
+The `initial.xyz` file contains the fixed Σ5(210) 53.1° ⟨001⟩ symmetric tilt grain-boundary geometry. The script preserves the atomic coordinates, simulation cell, carbon sublattice, and microscopic GB motif from `initial.xyz`, while randomly assigning the requested metal species on the metal sublattice.
+
+The GB structure follows this convention:
+
+```text
+GB type:        Σ5(210) symmetric tilt grain boundary
+Misorientation: 53.1°
+Tilt axis:      ⟨001⟩
+GB plane:       (210)
+GB normal:      x direction
+Periodic GBs:   x = 0/Lx and x = Lx/2
+
+## 2. MC–MD workflow script
 scripts/mc_md_workflow_distributed_mace.py
 
 This script performs MC atom-swap sampling combined with short MD relaxation using a MACE calculator.
@@ -82,7 +102,7 @@ small.model
 
 or the user should edit the model_paths variable in the script.
 
-## 2. GB segregation post-processing script
+## 3. GB segregation post-processing script
 scripts/gb_segregation_postprocessing.py
 
 This script analyzes .xyz files from MC–MD grain-boundary simulations and calculates distance-resolved metal-sublattice composition profiles as a function of distance from the nearest GB.
@@ -120,13 +140,21 @@ pyyaml
 The MC–MD script used in the manuscript corresponds to the distributed-GPU workflow used on an HPC system. It uses a distributed MACE calculator. For non-distributed calculations, users may replace the distributed calculator section with a standard ASE-compatible MACE calculator or another ASE-compatible MLIP calculator.
 
 ## How to run the MC–MD workflow
-### Step 1: Prepare the input structure
+### Step 1: Prepare the GB template
 
-Place the starting grain-boundary structure in the run folder and name it:
+Place the provided Σ5(210) GB template in the repository root and name it:
 
+```text
 initial.xyz
+Example for (Hf,Mo,V,W,Zr)C:
+python scripts/make_sigma5_210_gb_from_initial.py \
+  --template initial.xyz \
+  --composition "Hf Mo V W Zr" \
+  --seed 12345 \
+  --orthogonalize-cell \
+  --output HfMoVWZrC_sigma5_210_GB.xyz \
+  --write-lammps-data HfMoVWZrC_sigma5_210_GB.data
 
-The input structure should be readable by ASE.
 
 ### Step 2: Prepare the model
 
