@@ -155,6 +155,8 @@ python scripts/make_sigma5_210_gb_from_initial.py \
   --orthogonalize-cell \
   --output HfMoVWZrC_sigma5_210_GB.xyz \
   --write-lammps-data HfMoVWZrC_sigma5_210_GB.data
+```
+
 This produces:
 
 ```text
