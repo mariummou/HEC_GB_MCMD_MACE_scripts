@@ -79,7 +79,7 @@ Periodic GBs:   x = 0/Lx and x = Lx/2
 ```
 
 ## 2. MC–MD workflow script
-scripts/mc_md_workflow_distributed_mace.py
+scripts/mc_md_workflow.py
 
 This script performs MC atom-swap sampling combined with short MD relaxation using a MACE calculator.
 
@@ -192,7 +192,7 @@ For example, to run a 300 K simulation, run the script inside a folder named:
 
 Example command:
 
-python scripts/mc_md_workflow_distributed_mace.py
+python scripts/mc_md_workflow.py
 
 or, if running from inside a temperature folder:
 
