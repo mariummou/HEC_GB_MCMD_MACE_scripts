@@ -145,6 +145,7 @@ The MC–MD script used in the manuscript corresponds to the distributed-GPU wor
 ### Step 1: Prepare the GB template
 
 Place the provided Σ5(210) GB template in the repository root and name it: initial.xyz
+```text
 Example for (Hf,Mo,V,W,Zr)C:
 python scripts/make_sigma5_210_gb_from_initial.py \
   --template initial.xyz \
@@ -153,6 +154,7 @@ python scripts/make_sigma5_210_gb_from_initial.py \
   --orthogonalize-cell \
   --output HfMoVWZrC_sigma5_210_GB.xyz \
   --write-lammps-data HfMoVWZrC_sigma5_210_GB.data
+```
 
 
 This produces:
