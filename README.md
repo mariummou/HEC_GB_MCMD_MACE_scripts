@@ -161,6 +161,7 @@ This produces:
 HfMoVWZrC_sigma5_210_GB.xyz
 HfMoVWZrC_sigma5_210_GB.data
 ```
+The generated `.xyz` file should be copied into the temperature run folder and renamed as `initial.xyz`.
 
 ### Step 2: Prepare the model
 
@@ -196,7 +197,7 @@ python scripts/mc_md_workflow.py
 
 or, if running from inside a temperature folder:
 
-python ../scripts/mc_md_workflow_distributed_mace.py
+python ../scripts/mc_md_workflow.py
 Main MC–MD settings
 
 Important MC–MD settings are defined near the top of the script:
