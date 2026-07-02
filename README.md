@@ -76,6 +76,7 @@ Tilt axis:      ⟨001⟩
 GB plane:       (210)
 GB normal:      x direction
 Periodic GBs:   x = 0/Lx and x = Lx/2
+```
 
 ## 2. MC–MD workflow script
 scripts/mc_md_workflow_distributed_mace.py
@@ -154,7 +155,12 @@ python scripts/make_sigma5_210_gb_from_initial.py \
   --orthogonalize-cell \
   --output HfMoVWZrC_sigma5_210_GB.xyz \
   --write-lammps-data HfMoVWZrC_sigma5_210_GB.data
+This produces:
 
+```text
+HfMoVWZrC_sigma5_210_GB.xyz
+HfMoVWZrC_sigma5_210_GB.data
+```
 
 ### Step 2: Prepare the model
 
