@@ -141,13 +141,10 @@ pyyaml
 The MC–MD script used in the manuscript corresponds to the distributed-GPU workflow used on an HPC system. It uses a distributed MACE calculator. For non-distributed calculations, users may replace the distributed calculator section with a standard ASE-compatible MACE calculator or another ASE-compatible MLIP calculator.
 
 ## How to run the MC–MD workflow
-````markdown
+
 ### Step 1: Prepare the GB template
 
-Place the provided Σ5(210) GB template in the repository root and name it:
-
-```text
-initial.xyz
+Place the provided Σ5(210) GB template in the repository root and name it: initial.xyz
 Example for (Hf,Mo,V,W,Zr)C:
 python scripts/make_sigma5_210_gb_from_initial.py \
   --template initial.xyz \
@@ -156,7 +153,7 @@ python scripts/make_sigma5_210_gb_from_initial.py \
   --orthogonalize-cell \
   --output HfMoVWZrC_sigma5_210_GB.xyz \
   --write-lammps-data HfMoVWZrC_sigma5_210_GB.data
-```
+
 
 This produces:
 
