@@ -307,10 +307,17 @@ If you use this repository, its data, or its workflows in your research, please 
 
 Mou, M. M., Haque, T. M. A., Daigle, S. E., et al. “Finite-Temperature Grain-Boundary Segregation in High-Entropy Carbides.” Journal of the American Ceramic Society 109, no. 7 (2026): e71032. https://doi.org/10.1111/jace.71032
 
-BibTeX
+### BibTeX
+
+```bibtex
 @article{Mou2026FiniteTemperature,
-  author  = {Mou, Marium M. and Haque, Tarek Md Anamul and Daigle, Samuel E. and Roberts, Josiah and Fahrenholtz, William G. and Maria, Jon-Paul and Wolfe, Douglas E. and Zurek, Eva and Curtarolo, Stefano and Brenner, Donald W.},
-  title   = {Finite-Temperature Grain-Boundary Segregation in High-Entropy Carbides},
+  author  = {Mou, Marium M. and Haque, Tarek Md Anamul and
+             Daigle, Samuel E. and Roberts, Josiah and
+             Fahrenholtz, William G. and Maria, Jon-Paul and
+             Wolfe, Douglas E. and Zurek, Eva and
+             Curtarolo, Stefano and Brenner, Donald W.},
+  title   = {Finite-Temperature Grain-Boundary Segregation in
+             High-Entropy Carbides},
   journal = {Journal of the American Ceramic Society},
   year    = {2026},
   volume  = {109},
@@ -319,5 +326,5 @@ BibTeX
   doi     = {10.1111/jace.71032},
   url     = {https://doi.org/10.1111/jace.71032}
 }
-
+```
 
